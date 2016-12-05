@@ -2,10 +2,18 @@
  * Created by mrowinski on 05.12.2016.
  */
 var data=[];
-$.getJSON('dane2.json', function(dane){//funkcja pobiera obiekty"dane" z pliku funkcja z biblioteki jquery
-    console.log(dane)//wypisuje w konsoli dane
-    for(var i=0;i<dane.users.length;i++)
+$.getJSON('http://jsonplaceholder.typicode.com/posts',function(data){
+  // console.log(dane2)
+    for(var i=0;i<data.length;i++)
     {
-    console.log(dane.users[i])
+        var table = document.getElementById("myTable");
+        var row = table.insertRow(i);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = "TITLE: " + data[i].title;
+        cell2.innerHTML = "BODY: " + data[i].body;
     }
 });
+function myFunction() {
+
+}
