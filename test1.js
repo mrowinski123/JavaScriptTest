@@ -3,17 +3,20 @@
  */
 var data=[];
 $.getJSON('http://jsonplaceholder.typicode.com/posts',function(data){
-  // console.log(dane2)
-    for(var i=0;i<data.length;i++)
+    for(var i=0;i<data.length+1;i++)
     {
         var table = document.getElementById("myTable");
         var row = table.insertRow(i);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
-        cell1.innerHTML = "TITLE: " + data[i].title;
-        cell2.innerHTML = "BODY: " + data[i].body;
+        if(i==0) {
+            cell1.innerHTML = "TITLE";
+            cell2.innerHTML = "BODY";
+
+        }
+        else{
+            cell1.innerHTML =data[i].title;
+            cell2.innerHTML =data[i].body;
+        }
     }
 });
-function myFunction() {
-
-}
